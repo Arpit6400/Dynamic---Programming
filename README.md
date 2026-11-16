@@ -376,7 +376,7 @@ Here is a collective summary of the fundamental DP patterns and paradigms utiliz
 
 * **DP 52: Evaluate Boolean Expression to True (Boolean Parenthesization)**
   * *Pattern*: Multi-State Interval DP (True / False Counts)
-  * *Concept*: Partition at each operator ($\&, |, \text{\textasciicircum}$); combine left and right boolean outcome counts.
+  * *Concept*: Partition at each operator (`&`, `|`, `^`); combine left and right boolean outcome counts.
   * *Links*: [GFG Boolean Parenthesization](https://www.geeksforgeeks.org/problems/boolean-parenthesization5610/1)
   * *File*: [dp52_Boolean_Parenthesization.java](08_Partition_DP_MCM/dp52_Boolean_Parenthesization.java)
 

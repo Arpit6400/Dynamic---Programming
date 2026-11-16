@@ -1,7 +1,10 @@
+
+// GFG: https://www.geeksforgeeks.org/problems/printing-longest-increasing-subsequence/1
 import java.util.Arrays;
+
 public class dp42_Print_LIS {
     public static void main(String[] args) {
-        int[] arr = {10, 22, 9, 33, 21, 50, 41, 60};
+        int[] arr = { 10, 22, 9, 33, 21, 50, 41, 60 };
         System.out.println("Length of Longest Increasing Subsequence: " + longestIncreasingSubsequence1D(arr));
         printLongestIncreasingSubsequence(arr);
     }

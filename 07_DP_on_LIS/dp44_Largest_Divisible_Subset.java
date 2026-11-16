@@ -1,6 +1,9 @@
+
+// LC: https://leetcode.com/problems/largest-divisible-subset/
 import java.util.*;
+
 public class dp44_Largest_Divisible_Subset {
-    
+
     // Largest Divisible Subset
     public static List<Integer> largestDivisibleSubset(int[] nums) {
         int n = nums.length;
@@ -35,7 +38,6 @@ public class dp44_Largest_Divisible_Subset {
             result.add(nums[currentIndex]);
             currentIndex = hash[currentIndex]; // Move to the previous index in the subset
         }
-        
 
         Collections.reverse(result); // Reverse to get the correct order
         return result;

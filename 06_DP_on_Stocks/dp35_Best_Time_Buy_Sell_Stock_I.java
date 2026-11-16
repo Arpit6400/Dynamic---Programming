@@ -1,6 +1,8 @@
+// LC: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+// GFG: https://www.geeksforgeeks.org/problems/stock-buy-and-sell2615/1
 public class dp35_Best_Time_Buy_Sell_Stock_I {
     public static void main(String[] args) {
-        
+
     }
 
     // Dp on stocks

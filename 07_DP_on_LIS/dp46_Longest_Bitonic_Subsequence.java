@@ -1,8 +1,10 @@
+
+// GFG: https://www.geeksforgeeks.org/problems/longest-bitonic-subsequence0806/1
 import java.util.*;
 
 public class dp46_Longest_Bitonic_Subsequence {
     public static void main(String[] args) {
-    System.out.println(longestBitonicSequence(5, new int[]{1,2,5,3,2}));
+        System.out.println(longestBitonicSequence(5, new int[] { 1, 2, 5, 3, 2 }));
     }
 
     public static int longestBitonicSequence(int n, int[] nums) {
@@ -18,16 +20,16 @@ public class dp46_Longest_Bitonic_Subsequence {
                     dp1[idx] = Math.max(dp1[idx], dp1[prev] + 1);
                 }
             }
-            for(int prev = n - 1; prev > n - 1 - idx ; prev--){
-                if(nums[prev] < nums[n - 1 - idx]){
+            for (int prev = n - 1; prev > n - 1 - idx; prev--) {
+                if (nums[prev] < nums[n - 1 - idx]) {
                     dp2[n - 1 - idx] = Math.max(dp2[n - 1 - idx], dp2[prev] + 1);
                 }
             }
         }
         int ans = 0;
         for (int i = 0; i < n; i++) {
-            if(dp1[i] > 1 && dp2[i] > 1){
-                ans = Math.max(ans, dp1[i] + dp2[i] - 1); 
+            if (dp1[i] > 1 && dp2[i] > 1) {
+                ans = Math.max(ans, dp1[i] + dp2[i] - 1);
             }
         }
         return ans;

@@ -1,3 +1,5 @@
+
+// LC: https://leetcode.com/problems/longest-string-chain/
 import java.util.*;
 
 public class dp45_Longest_String_Chain {
@@ -21,17 +23,16 @@ public class dp45_Longest_String_Chain {
     }
 
     private boolean checkPossible(String string1, String string2) {
-        if(string1.length() != string2.length() + 1){
+        if (string1.length() != string2.length() + 1) {
             return false;
         }
         int first = 0;
         int second = 0;
-        while (first!=string1.length()) {
-            if(second !=string2.length() && string1.charAt(first) == string2.charAt(second)){
+        while (first != string1.length()) {
+            if (second != string2.length() && string1.charAt(first) == string2.charAt(second)) {
                 first++;
                 second++;
-            }
-            else{
+            } else {
                 first++;
             }
         }

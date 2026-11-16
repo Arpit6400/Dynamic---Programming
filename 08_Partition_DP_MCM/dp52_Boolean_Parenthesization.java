@@ -1,3 +1,4 @@
+// GFG: https://www.geeksforgeeks.org/problems/boolean-parenthesization5610/1
 public class dp52_Boolean_Parenthesization {
 
     // Boolean Parenthesization - Recursion
@@ -161,60 +162,58 @@ public class dp52_Boolean_Parenthesization {
 
     // non modular version
     public static int booleanParenthesizationTabulation2(String exp) {
-    int n = exp.length();
+        int n = exp.length();
 
-    long[][][] dp = new long[n][n][2];
+        long[][][] dp = new long[n][n][2];
 
-    for (int i = n - 1; i >= 0; i -= 2) {
-        for (int j = i; j < n; j += 2) {
+        for (int i = n - 1; i >= 0; i -= 2) {
+            for (int j = i; j < n; j += 2) {
 
-            if (i == j) {
-                dp[i][j][1] = exp.charAt(i) == 'T' ? 1 : 0;
-                dp[i][j][0] = exp.charAt(i) == 'F' ? 1 : 0;
-                continue;
-            }
-
-            for (int isTrue = 0; isTrue <= 1; isTrue++) {
-                long ways = 0;
-
-                for (int idx = i + 1; idx <= j - 1; idx += 2) {
-
-                    long LT = dp[i][idx - 1][1];
-                    long LF = dp[i][idx - 1][0];
-                    long RT = dp[idx + 1][j][1];
-                    long RF = dp[idx + 1][j][0];
-
-                    char operator = exp.charAt(idx);
-
-                    if (operator == '&') {
-                        if (isTrue == 1) {
-                            ways += LT * RT;
-                        } else {
-                            ways += LF * RT + LF * RF + LT * RF;
-                        }
-                    }
-                    else if (operator == '|') {
-                        if (isTrue == 1) {
-                            ways += LT * RT + LT * RF + LF * RT;
-                        } else {
-                            ways += LF * RF;
-                        }
-                    }
-                    else {
-                        if (isTrue == 1) {
-                            ways += LF * RT + LT * RF;
-                        } else {
-                            ways += LT * RT + LF * RF;
-                        }
-                    }
+                if (i == j) {
+                    dp[i][j][1] = exp.charAt(i) == 'T' ? 1 : 0;
+                    dp[i][j][0] = exp.charAt(i) == 'F' ? 1 : 0;
+                    continue;
                 }
 
-                dp[i][j][isTrue] = ways;
+                for (int isTrue = 0; isTrue <= 1; isTrue++) {
+                    long ways = 0;
+
+                    for (int idx = i + 1; idx <= j - 1; idx += 2) {
+
+                        long LT = dp[i][idx - 1][1];
+                        long LF = dp[i][idx - 1][0];
+                        long RT = dp[idx + 1][j][1];
+                        long RF = dp[idx + 1][j][0];
+
+                        char operator = exp.charAt(idx);
+
+                        if (operator == '&') {
+                            if (isTrue == 1) {
+                                ways += LT * RT;
+                            } else {
+                                ways += LF * RT + LF * RF + LT * RF;
+                            }
+                        } else if (operator == '|') {
+                            if (isTrue == 1) {
+                                ways += LT * RT + LT * RF + LF * RT;
+                            } else {
+                                ways += LF * RF;
+                            }
+                        } else {
+                            if (isTrue == 1) {
+                                ways += LF * RT + LT * RF;
+                            } else {
+                                ways += LT * RT + LF * RF;
+                            }
+                        }
+                    }
+
+                    dp[i][j][isTrue] = ways;
+                }
             }
         }
-    }
 
-    return (int) dp[0][n - 1][1];
-}
+        return (int) dp[0][n - 1][1];
+    }
 
 }

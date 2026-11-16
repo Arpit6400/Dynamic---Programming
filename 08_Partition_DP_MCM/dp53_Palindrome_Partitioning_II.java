@@ -1,3 +1,5 @@
+// LC: https://leetcode.com/problems/palindrome-partitioning-ii/
+// GFG: https://www.geeksforgeeks.org/problems/palindromic-patitioning4845/1
 public class dp53_Palindrome_Partitioning_II {
     public static void main(String[] args) {
 
